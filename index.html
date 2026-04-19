@@ -29,15 +29,22 @@
         box-sizing: border-box;
       }
 
+      html {
+        margin: 0;
+      }
+
       body {
         margin: 0;
         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN",
           "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", "Meiryo", Arial, "Apple Color Emoji", "Segoe UI Emoji";
         color: var(--text);
         display: grid;
-        place-items: center;
+        /* 縦中央だと画面上部に「謎の空白」ができるので上寄せ（横は中央のまま） */
+        place-items: start center;
         min-height: 100vh;
+        min-height: 100dvh;
         padding: 28px 20px;
+        padding-top: max(28px, env(safe-area-inset-top, 0px));
         background:
           radial-gradient(900px 520px at 10% -10%, rgba(255, 255, 255, 0.92), transparent 60%),
           radial-gradient(700px 500px at 90% 110%, rgba(201, 114, 58, 0.12), transparent 55%),
